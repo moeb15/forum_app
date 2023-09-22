@@ -77,9 +77,18 @@ func DeletePost(c *gin.Context) {
 		return
 	}
 
-	if post.UserID != user.ID {
-		c.JSON(http.StatusForbidden, gin.H{"error": "Unauthorized Action"})
+	if user.ID != post.UserID {
+		c.JSON(http.StatusForbidden, gin.H{"error": "Unauthorized action"})
 		return
+	}
+
+	for _, cmt := range post.Comments {
+		err := cmt.Delete()
+
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
 	}
 
 	err = post.Delete()
