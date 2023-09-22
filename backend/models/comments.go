@@ -22,3 +22,11 @@ func (cmt *Comments) Save() (*Comments, error) {
 	}
 	return cmt, nil
 }
+
+func (cmt *Comments) Delete() error {
+	err := database.Database.Unscoped().Delete(&cmt).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}

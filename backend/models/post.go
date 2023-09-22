@@ -27,7 +27,7 @@ func (post *Post) Save() (*Post, error) {
 }
 
 func (post *Post) Delete() error {
-	err := database.Database.Delete(&post).Error
+	err := database.Database.Unscoped().Delete(&post).Error
 	if err != nil {
 		return err
 	}
