@@ -37,7 +37,7 @@ func serveApplication() {
 	//Protected Routes (Comments)
 	protected_routes.POST("/posts/:id", controller.AddComment)
 
-	router.Run(":8000")
+	log.Fatal(router.Run(":8000"))
 }
 
 func loadEnv() {
