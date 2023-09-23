@@ -20,7 +20,7 @@ func GenerateJWT(user models.User) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":  user.ID,
 		"iat": time.Now().Unix(),
-		"eat": time.Now().Add(time.Second * time.Duration(token_ttl)).Unix(),
+		"eat": time.Now().Add(time.Minute * time.Duration(token_ttl)).Unix(),
 	})
 	return token.SignedString(private_key)
 }
@@ -52,14 +52,14 @@ func ValidateJWT(c *gin.Context) error {
 		return nil
 	}
 
-	return errors.New("Invalid token provided")
+	return errors.New("invalid token provided")
 }
 
 func getToken(c *gin.Context) (*jwt.Token, error) {
 	token_str := getTokenFromRequest(c)
 	token, err := jwt.Parse(token_str, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
 
 		return private_key, nil
