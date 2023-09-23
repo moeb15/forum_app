@@ -6,14 +6,13 @@ import (
 	"gorm.io/gorm"
 )
 
-type Tag []string
-
 type Post struct {
 	gorm.Model
+	Title    string `gorm:"not null" json:"title"`
 	Content  string `gorm:"not null" json:"content"`
 	Likes    int    `gorm:"default:0" json:"likes"`
 	Dislikes int    `gorm:"default:0" json:"dislikes"`
-	Tags     Tag    `gorm:"type:text" json:"tags"`
+	Tags     string `json:"tags"`
 	Comments []Comments
 	UserID   uint
 }
