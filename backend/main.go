@@ -33,6 +33,7 @@ func serveApplication() {
 	protected_routes.GET("/posts", controller.GetAllPosts)
 	protected_routes.GET("/posts/:id", controller.GetPost)
 	protected_routes.DELETE("/posts/:id", controller.DeletePost)
+	protected_routes.PATCH("/posts/:id", controller.UpdatePost)
 
 	//Protected Routes (Comments)
 	protected_routes.POST("/posts/:id", controller.AddComment)
