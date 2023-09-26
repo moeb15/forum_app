@@ -25,6 +25,14 @@ func (post *Post) Save() (*Post, error) {
 	return post, nil
 }
 
+func (post *Post) Update() (*Post, error) {
+	err := database.Database.Updates(&post).Error
+	if err != nil {
+		return &Post{}, err
+	}
+	return post, nil
+}
+
 func (post *Post) Delete() error {
 	err := database.Database.Unscoped().Delete(&post).Error
 	if err != nil {
