@@ -7,6 +7,7 @@ import (
 	"forum_api/models"
 	"log"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -19,6 +20,7 @@ func main() {
 
 func serveApplication() {
 	router := gin.Default()
+	router.Use(cors.Default())
 
 	// Public Routes
 	public_routes := router.Group("/auth")
