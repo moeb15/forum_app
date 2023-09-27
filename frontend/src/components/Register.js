@@ -1,14 +1,32 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Register(){
     const [ pwd,setPwd ] = useState("");
     const [ cnfpwd, setCnfpwd ] = useState("");
     const [ user,setUser ] = useState("");
+    const register_url = "http://localhost:8000/auth/register"
 
-    const registerSubmit = e => {
+    const registerSubmit = async(e) => {
         e.preventDefault();
         if(cnfpwd !== pwd){
             alert("Passwords do not match!")
+        }
+        
+        const response = await fetch(register_url,{
+            method:"POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({
+                username:user,
+                password:pwd
+            })
+        })
+        const content = await response.json()
+        
+        if(content.hasOwnProperty("error")){
+            alert(`Username ${user} is already in use`)
+        }else{
+            alert("Account created!")
         }
     }
     return(
@@ -37,10 +55,10 @@ function Register(){
                     name="cnfrmpwd"
                     value={cnfpwd}
                     onChange={e=>setCnfpwd(e.target.value)}/> 
-                <button>Register</button>
+                <button className="auth-btn">Register</button>
             </form>
 
-            <button className="link-btn">Already have an account? Login here</button>
+            <Link to="/" className="link-btn redirect-btn">Already have an account? Login here</Link>
         </div>
     )
 }
