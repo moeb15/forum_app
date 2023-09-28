@@ -8,6 +8,7 @@
 .forum-post-container, .forum-post, .view-post{
     display: flex;
     flex-direction: column;
+    margin: 0.2rem;
 }
 
 .forum-post-container input{
