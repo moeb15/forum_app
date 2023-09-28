@@ -6,6 +6,7 @@ import (
 	"forum_api/middleware"
 	"forum_api/models"
 	"log"
+	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -20,7 +21,13 @@ func main() {
 
 func serveApplication() {
 	router := gin.Default()
-	router.Use(cors.Default())
+	router.Use(cors.New(cors.Config{
+		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE"},
+		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
+		AllowCredentials: false,
+		AllowAllOrigins:  true,
+		MaxAge:           12 * time.Hour,
+	}))
 
 	// Public Routes
 	public_routes := router.Group("/auth")
@@ -32,8 +39,10 @@ func serveApplication() {
 
 	// Protected Routes (Posts)
 	protected_routes.POST("/posts", controller.AddPost)
-	protected_routes.GET("/posts", controller.GetAllPosts)
+	protected_routes.POST("/posts/search", controller.SearchPosts)
+	protected_routes.GET("/posts", controller.GetUsersPosts)
 	protected_routes.GET("/posts/:id", controller.GetPost)
+	protected_routes.GET("/posts/all", controller.GetAllPosts)
 	protected_routes.DELETE("/posts/:id", controller.DeletePost)
 	protected_routes.PATCH("/posts/:id", controller.UpdatePost)
 
