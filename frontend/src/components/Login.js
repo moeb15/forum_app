@@ -26,7 +26,7 @@ function Login(){
     return(
         <div className="auth-form-container">
             <form className="login-form" onSubmit={loginSubmit}>
-                <label for="username">Username</label>
+                <label htmlFor="username">Username</label>
                 <input type="text" 
                     placeholder="Username" 
                     id="username" 
@@ -34,7 +34,7 @@ function Login(){
                     value={user}
                     onChange={e=>setUser(e.target.value)}/>
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input type="password" 
                     placeholder="Password" 
                     id="password" 

@@ -32,7 +32,7 @@ function Register(){
     return(
         <div className="auth-form-container"> 
             <form className="login-form" onSubmit={registerSubmit}>
-                <label for="username">Username</label>
+                <label htmlFor="username">Username</label>
                 <input type="text" 
                     placeholder="Username" 
                     id="username" 
@@ -40,7 +40,7 @@ function Register(){
                     value={user}
                     onChange={e=>setUser(e.target.value)}/>
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input type="password" 
                     placeholder="Password" 
                     id="password" 
@@ -48,7 +48,7 @@ function Register(){
                     value={pwd}
                     onChange={e=>setPwd(e.target.value)}/>   
                 
-                <label for="cnfrmpwd">Confirm Password</label>
+                <label htmlFor="cnfrmpwd">Confirm Password</label>
                 <input type="password" 
                     placeholder="Password" 
                     id="cnfrmpwd" 
