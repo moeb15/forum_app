@@ -1,7 +1,9 @@
 package models
 
 import (
+	"fmt"
 	"forum_api/database"
+	"forum_api/pagination"
 
 	"gorm.io/gorm"
 )
@@ -48,4 +50,24 @@ func FindPostById(pid uint) (Post, error) {
 		return Post{}, err
 	}
 	return post, nil
+}
+
+func FindPostByTitle(title string, limit, page int) ([]Post, error) {
+	var posts []Post
+	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
+		Where("Title LIKE ?", fmt.Sprint("%", title, "%")).Find(&posts).Error
+	if err != nil {
+		return []Post{}, err
+	}
+	return posts, nil
+}
+
+func AllPosts(limit, page int) ([]Post, error) {
+	var posts []Post
+	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
+		Find(&posts).Error
+	if err != nil {
+		return []Post{}, err
+	}
+	return posts, nil
 }
