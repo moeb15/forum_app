@@ -31,6 +31,7 @@ func AddComment(c *gin.Context) {
 
 	user_input.UserID = user.ID
 	user_input.PostID = uint(post_id)
+	user_input.Username = user.Username
 	saved_cmt, err := user_input.Save()
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
