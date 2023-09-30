@@ -139,11 +139,24 @@ func UpdatePost(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": patched_post})
 }
 
-func SearchPosts(c *gin.Context) {
+func SearchByTitle(c *gin.Context) {
 	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
 	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "10"))
 	title := c.DefaultQuery("title", "")
 	posts, err := models.FindPostByTitle(title, limit, page)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusFound, gin.H{"data": posts})
+}
+
+func SearchByTags(c *gin.Context) {
+	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "10"))
+	tags := c.DefaultQuery("tags", "")
+	posts, err := models.FindPostByTags(tags, limit, page)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
