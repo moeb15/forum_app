@@ -61,6 +61,16 @@ func FindPostByTitle(title string, limit, page int) ([]Post, error) {
 	return posts, nil
 }
 
+func FindPostByTags(tags string, limit, page int) ([]Post, error) {
+	var posts []Post
+	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
+		Where("Tags LIKE ?", "%"+tags+"%").Find(&posts).Error
+	if err != nil {
+		return []Post{}, err
+	}
+	return posts, nil
+}
+
 func AllPosts(limit, page int) ([]Post, error) {
 	var posts []Post
 	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
