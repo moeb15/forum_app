@@ -39,7 +39,8 @@ func serveApplication() {
 
 	// Protected Routes (Posts)
 	protected_routes.POST("/posts", controller.AddPost)
-	protected_routes.POST("/posts/search", controller.SearchPosts)
+	protected_routes.GET("/posts/title", controller.SearchByTitle)
+	protected_routes.GET("/posts/tags", controller.SearchByTags)
 	protected_routes.GET("/posts", controller.GetUsersPosts)
 	protected_routes.GET("/posts/:id", controller.GetPost)
 	protected_routes.GET("/posts/all", controller.GetAllPosts)
