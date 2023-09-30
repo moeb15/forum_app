@@ -9,6 +9,10 @@ function AddPost(){
 
     const submitPost = async(e) =>{
         e.preventDefault();
+        if(title === "" || content === ""){
+            alert("Both a title and post content are required to make a post")
+            return
+        }
         const response = await fetch(addpost_url,{
             method:"POST",
             headers:{
