@@ -23,6 +23,7 @@ func AddPost(c *gin.Context) {
 	}
 
 	user_post.UserID = user.ID
+	user_post.Username = user.Username
 	saved_post, err := user_post.Save()
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

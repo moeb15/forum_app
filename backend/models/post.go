@@ -15,6 +15,7 @@ type Post struct {
 	Dislikes int    `gorm:"default:0" json:"dislikes"`
 	Tags     string `json:"tags"`
 	Comments []Comments
+	Username string
 	UserID   uint
 }
 
