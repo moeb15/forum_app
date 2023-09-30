@@ -12,6 +12,7 @@ function ForumPost({props}){
     return(
         <div className="view-post">
             <button onClick={expandPost}>Expand</button>
+            <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{props.Username}</p>
             <h3 id="post-title">{props.title}</h3>
             <h4 id="post-created">{props.CreatedAt}</h4>
         </div>

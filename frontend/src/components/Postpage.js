@@ -21,7 +21,7 @@ function Postpage(){
     
             const data = await response.json();
             setPost(data.data)
-            setComments(postdata.Comments)
+            setComments(data.data.Comments)
         }
         getComments();
     },[postdata.ID])
@@ -43,6 +43,7 @@ function Postpage(){
         <div>
             <div className="forum-post-container">
                 <h3>{postdata.title}</h3>
+                <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{postdata.Username}</p>
                 <p style={{textAlign:"left"}}>{postdata.content}</p>
             </div>
             <AddComment/>
