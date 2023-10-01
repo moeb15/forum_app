@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Comment from "./Comment.js";
 import AddComment from "./AddComment.js";
+import Header from "./Header.js";
 
 function Postpage(){
     const [ comments,setComments ] = useState({});
@@ -41,6 +42,7 @@ function Postpage(){
 
     return(
         <div>
+            <Header/>
             <div className="forum-post-container">
                 <h3>{postdata.title}</h3>
                 <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{postdata.Username}</p>

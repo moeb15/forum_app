@@ -1,6 +1,7 @@
 import AddPost from "./AddPost";
 import { useState,useEffect } from "react";
 import ForumPost from "./ForumPost";
+import Header from "./Header.js";
 
 function Homepage(){
     const [ posts,setPosts ] = useState({});
@@ -26,12 +27,15 @@ function Homepage(){
     },[])
 
     return(
-        <div>
-            <AddPost />
-            {Array.from(posts).map((post, idx) => (
-                <ForumPost props={post} key={idx}/>
-            ))}
-        </div>
+        <>
+            <Header />
+            <div>
+                <AddPost />
+                {Array.from(posts).map((post, idx) => (
+                    <ForumPost props={post} key={idx}/>
+                ))}
+            </div>
+        </>
     )
 }
 
