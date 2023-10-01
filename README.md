@@ -11,4 +11,5 @@ The following needs to be added to the backend
 
 For the frontend the following needs to be added
 * The ability to change pages to view past posts
+* The option to edit/delete posts
 * General styling changes
