@@ -1,5 +1,5 @@
 # Forum Website
-For this project I'm building a forum website. The backend is being built using Go and the Gin web framework, and the frontend is being built with ReactJS. The project is still ongoing and the following has been completed
+For this project I'm building a forum website. The backend is being built using Go and the Gin web framework, and the frontend is being built with React. The project is still ongoing and the following has been completed
 * users can register/login
 * create/read/update/delete posts
 * users can add posts to comments
