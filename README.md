@@ -7,7 +7,7 @@ For this project I'm building a forum website. The backend is being built using 
 
 The following needs to be added to the backend
 * Refresh tokens, at the moment I'm just using access tokens that have a long lifetime which is a security risk
-* Storing JWT using httpOnly cookies, currently I'm storing the access token using local storage on the frontend which is vulnerable to XSS attacks  
+* Storing JWT using an HttpOnly cookie, currently I'm storing the access token using local storage on the frontend which is vulnerable to XSS attacks  
 
 For the frontend the following needs to be added
 * The ability to change pages to view past posts
