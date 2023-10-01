@@ -1,5 +1,5 @@
 # Forum Website
-For this project I'm building a forum website, the project is stil ongoing and the following has been completed
+For this project I'm building a forum website, the project is still ongoing and the following has been completed
 * users can register/login
 * create/read/update/delete posts
 * users can add posts to comments
