@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Comment from "./Comment.js";
 import AddComment from "./AddComment.js";
 import Header from "./Header.js";
+import PostDropdown from "./PostDropdown.js";
 
 function Postpage(){
     const [ comments,setComments ] = useState({});
@@ -44,6 +45,7 @@ function Postpage(){
         <div>
             <Header/>
             <div className="forum-post-container">
+                <PostDropdown/>
                 <h3>{postdata.title}</h3>
                 <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{postdata.Username}</p>
                 <p style={{textAlign:"left"}}>{postdata.content}</p>
