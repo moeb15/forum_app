@@ -1,0 +1,14 @@
+.dropdown-menu{
+    text-align: left;
+    position: absolute;
+}
+
+.dropdown-options{
+    flex-direction: column;
+    text-align: left;
+}
+
+.dropdown-btn{
+    margin-bottom:1vh;
+    cursor: pointer;
+}
