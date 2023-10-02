@@ -20,6 +20,7 @@ function Login(){
         const content = await response.json()
         if(content.hasOwnProperty('jwt')){
             localStorage.setItem("token",content.jwt);
+            localStorage.setItem("username",user)
             navigate("/home");
         }
     }
