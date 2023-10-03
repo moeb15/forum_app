@@ -3,17 +3,22 @@ import { MdArrowDropDown,MdDelete,MdEdit } from "react-icons/md";
 import "../styles/Dropdown.css";
 import { useNavigate } from "react-router-dom";
 
-function PostDropdown(){    
+function PostDropdown({isEdit,setEdit}){    
     const [ vis,setVis ] = useState("none");
     const navigate = useNavigate();
 
     function showMenu(e){
         e.preventDefault();
         if(vis === "none"){
-            setVis("flex")
+            setVis("flex");
         }else{
-            setVis("none")
+            setVis("none");
         }
+    }
+    
+    function showEdit(){
+        isEdit = !isEdit;
+        setEdit(isEdit);
     }
 
     const onDelete = async() =>{
@@ -41,7 +46,8 @@ function PostDropdown(){
             <MdArrowDropDown onClick={showMenu}/>
             <div className="dropdown-options"
                  style={{display:vis}}>
-                <MdEdit className="dropdown-btn"/>
+                <MdEdit className="dropdown-btn"
+                        onClick={showEdit}/>
                 <MdDelete className="dropdown-btn"
                           onClick={onDelete}/>
             </div>
