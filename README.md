@@ -11,6 +11,7 @@ On the frontend the following has been added
 * Homepage that displays all posts
 * Expand posts to view content
 * Can comment on expanded posts, can edit/delete posts if user is the author
+* Users can logout
 
 The following needs to be added to the backend
 * Refresh tokens, at the moment I'm just using access tokens that have a long lifetime which is a security risk
