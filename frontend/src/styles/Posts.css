@@ -23,7 +23,7 @@
     height: 2rem;
 }
 
-.view-post button, .forum-post button{
+.view-post button, .forum-post button, .nav-btn button{
     text-align: left;
     border: none;
     background-color: white;
@@ -33,7 +33,11 @@
     cursor: pointer;
 }
 
-.view-post button:hover, .forum-post button:hover{
+.nav-btn button{
+    margin: 0.5vh;
+}
+
+.view-post button:hover, .forum-post button:hover, .nav-btn button:hover{
     background-color: rgb(115, 115, 115);
     color: rgb(223, 223, 223);
     font-weight: bold;
