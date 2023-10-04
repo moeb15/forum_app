@@ -14,7 +14,7 @@ function ForumPost({props}){
             <button onClick={expandPost}>Expand</button>
             <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{props.Username}</p>
             <h3 id="post-title">{props.title}</h3>
-            <h4 id="post-created">{props.CreatedAt}</h4>
+            <h4 id="post-created">{props.CreatedAt.substring(0,10)}</h4>
         </div>
     )
 }
