@@ -12,11 +12,12 @@ On the frontend the following has been added
 * Expand posts to view content
 * Can comment on expanded posts, can edit/delete posts if user is the author
 * Users can logout
+* Users can navigate from page to page to view more posts 
 
 The following needs to be added to the backend
 * Refresh tokens, at the moment I'm just using access tokens that have a long lifetime which is a security risk
 * Storing JWT using an HttpOnly cookie, currently I'm storing the access token using local storage on the frontend which is vulnerable to XSS attacks  
 
 For the frontend the following needs to be added
-* The ability to change pages to view past posts
+* Component for searching for posts by tags/title
 * General styling changes
