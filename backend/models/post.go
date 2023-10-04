@@ -11,8 +11,6 @@ type Post struct {
 	gorm.Model
 	Title    string `gorm:"not null" json:"title"`
 	Content  string `gorm:"not null" json:"content"`
-	Likes    int    `gorm:"default:0" json:"likes"`
-	Dislikes int    `gorm:"default:0" json:"dislikes"`
 	Tags     string `json:"tags"`
 	Comments []Comments
 	Username string
@@ -55,7 +53,7 @@ func FindPostById(pid uint) (Post, error) {
 func FindPostByTitle(title string, limit, page int) ([]Post, error) {
 	var posts []Post
 	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
-		Where("Title LIKE ?", "%"+title+"%").Find(&posts).Error
+		Where("Title LIKE ?", "%"+title+"%").Order("ID desc").Find(&posts).Error
 	if err != nil {
 		return []Post{}, err
 	}
@@ -65,7 +63,7 @@ func FindPostByTitle(title string, limit, page int) ([]Post, error) {
 func FindPostByTags(tags string, limit, page int) ([]Post, error) {
 	var posts []Post
 	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
-		Where("Tags LIKE ?", "%"+tags+"%").Find(&posts).Error
+		Where("Tags LIKE ?", "%"+tags+"%").Order("ID desc").Find(&posts).Error
 	if err != nil {
 		return []Post{}, err
 	}
@@ -75,7 +73,7 @@ func FindPostByTags(tags string, limit, page int) ([]Post, error) {
 func AllPosts(limit, page int) ([]Post, error) {
 	var posts []Post
 	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
-		Find(&posts).Error
+		Order("ID desc").Find(&posts).Error
 	if err != nil {
 		return []Post{}, err
 	}

@@ -9,8 +9,6 @@ import (
 type Comments struct {
 	gorm.Model
 	Content  string `gorm:"not null" json:"content"`
-	Likes    int    `gorm:"default:0" json:"likes"`
-	Dislikes int    `gorm:"default:0" json:"dislikes"`
 	Username string
 	PostID   uint
 	UserID   uint
