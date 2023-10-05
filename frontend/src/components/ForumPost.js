@@ -18,6 +18,9 @@ function ForumPost({props}){
             <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>
                 Comments: {props.Comments === null? 0 : props.Comments.length}
             </p>
+            <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>
+                Tags: {props.tags === "" ? "None" : props.tags}
+            </p>
             <h3 id="post-title">{props.title}</h3>
             <h4 id="post-created">{props.CreatedAt.substring(0,10)}</h4>
         </div>
