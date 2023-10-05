@@ -4,6 +4,7 @@ import { BiLogOut } from "react-icons/bi";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function Header(){
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ function Header(){
     
     return(
         <div className="header">
+            <SearchBar className="header-links"/>
             <Link className="header-links"
                   onClick={logout}>
                 <BiLogOut />
