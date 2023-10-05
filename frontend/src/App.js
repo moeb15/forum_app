@@ -5,6 +5,7 @@ import './styles/App.css'
 import Homepage from "./components/Homepage";
 import Postpage from "./components/Postpage";
 import UserHome from "./components/UserHome";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" Component={Homepage}/>
           <Route path="/post" Component={Postpage}/>
           <Route path="/user" Component={UserHome}/>
+          <Route path="/search" Component={SearchPage}/>
         </Routes>
       </BrowserRouter>
     </div>
