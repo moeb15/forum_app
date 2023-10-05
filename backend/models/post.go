@@ -73,7 +73,7 @@ func FindPostByTags(tags string, limit, page int) ([]Post, error) {
 func AllPosts(limit, page int) ([]Post, error) {
 	var posts []Post
 	err := database.Database.Scopes(pagination.NewPaginate(limit, page).PaginatedResult).
-		Order("ID desc").Find(&posts).Error
+		Preload("Comments").Order("ID desc").Find(&posts).Error
 	if err != nil {
 		return []Post{}, err
 	}
