@@ -34,7 +34,6 @@ function Homepage(){
 
     return(
         <>
-            <Header />
             <div>
                 <AddPost />
                 {Array.from(posts).map((post, idx) => (

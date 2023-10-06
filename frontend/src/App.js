@@ -6,21 +6,23 @@ import Homepage from "./components/Homepage";
 import Postpage from "./components/Postpage";
 import UserHome from "./components/UserHome";
 import SearchPage from "./components/SearchPage";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" Component={Login}/>
-          <Route path="/register" Component={Register}/>
-          <Route path="/home" Component={Homepage}/>
-          <Route path="/post" Component={Postpage}/>
-          <Route path="/user" Component={UserHome}/>
-          <Route path="/search" Component={SearchPage}/>
-        </Routes>
+        <Header />
+        <div className="App py-4">
+          <Routes>
+            <Route path="/" Component={Login}/>
+            <Route path="/register" Component={Register}/>
+            <Route path="/home" Component={Homepage}/>
+            <Route path="/post" Component={Postpage}/>
+            <Route path="/user" Component={UserHome}/>
+            <Route path="/search" Component={SearchPage}/>
+          </Routes>
+        </div>
       </BrowserRouter>
-    </div>
   );
 }
 

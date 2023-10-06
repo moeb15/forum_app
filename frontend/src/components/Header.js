@@ -16,20 +16,29 @@ function Header(){
     }
     
     return(
-        <div className="header">
-            <SearchBar className="header-links"/>
-            <Link className="header-links"
-                  onClick={logout}>
-                <BiLogOut />
+        <div className="fixed w-full h-[3vh] 
+                        flex flex-row 
+                        justify-end
+                        px-4
+                        bg-[#0a192f]
+                        mb-5
+                        text-gray-300">
+            <div className="hidden md:flex flex-row justify-between
+                            px-[1vh]">
+                <SearchBar className="header-links"/>
+                <Link className="header-links"
+                    onClick={logout}>
+                    <BiLogOut />
+                </Link>
+                <Link className="header-links"
+                    to="/user">
+                    <FaUserCircle />
+                </Link>
+                <Link className="header-links" 
+                    to="/home">
+                    <AiOutlineHome />
             </Link>
-            <Link className="header-links"
-                  to="/user">
-                <FaUserCircle />
-            </Link>
-            <Link className="header-links" 
-                  to="/home">
-                <AiOutlineHome />
-            </Link>
+            </div>
         </div>
     )
 }
