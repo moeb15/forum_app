@@ -30,7 +30,6 @@ function UserHome(){
     console.log(posts)
     return(
         <>
-            <Header />
             <div>
                 <div className="user-icon">
                     <FaUserCircle size={70}/>

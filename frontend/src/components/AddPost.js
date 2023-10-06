@@ -36,30 +36,44 @@ function AddPost(){
     }
 
     return(
-        <div className="forum-post-container">
-            <form className="forum-post" onSubmit={submitPost}>
+        <div className="flex flex-col  text-gray-300 sm:w-[100vh]
+                        m-2 p-4 border-solid border-[0.1vh]
+                        border-black shadow-md shadow-black
+                        h-[100%]">
+            <form className="flex flex-col h-[100%]" onSubmit={submitPost}>
                 <input type="text" 
                     placeholder="Title" 
                     id="title" 
                     name="title"
                     value={title}
-                    onChange={e=>setTitle(e.target.value)}/>
+                    onChange={e=>setTitle(e.target.value)}
+                    className="bg-black border-none rounded-none
+                                 h-[0.4rem]"/>
                     
                 <input type="text" 
                     placeholder="Content" 
                     id="content" 
                     name="content"
                     value={content}
-                    onChange={e=>setContent(e.target.value)}/>
+                    onChange={e=>setContent(e.target.value)}
+                    style={{height:"4rem"}}
+                    className="bg-black border-none rounded-none
+                                 overflow-auto"/>
 
                 <input type="text" 
                     placeholder="Seperate with spaces" 
                     id="tags" 
                     name="tags"
                     value={tags}
-                    onChange={e=>setTags(e.target.value)}/>
+                    onChange={e=>setTags(e.target.value)}
+                    className="bg-black border-none rounded-none
+                                h-[0.4rem]"/>
                     
-                <button>Post</button>
+                <button className="text-gray-300 bg-black rounded-md
+                                    h-[5vh] hover:bg-gray-400 duration-300
+                                    hover:text-black">
+                        Post
+                </button>
             </form>
         </div>
     )

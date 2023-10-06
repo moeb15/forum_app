@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { CgArrowsExpandLeft } from "react-icons/cg";
 
 function ForumPost({props}){
     const navigate = useNavigate();
@@ -10,15 +11,17 @@ function ForumPost({props}){
     }
 
     return(
-        <div className="view-post">
-            <button onClick={expandPost}>Expand</button>
-            <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>
+        <div className="flex flex-col m-2 p-4 border-solid border-[0.1vh]
+                        border-black shadow-md shadow-black">
+            <CgArrowsExpandLeft onClick={expandPost}
+                                className="cursor-pointer mb-4" />
+            <p className="font-light text-sm text-left">
                 {props.Username}
             </p>
-            <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>
+            <p className="font-light text-sm text-left">
                 Comments: {props.Comments === null? 0 : props.Comments.length}
             </p>
-            <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>
+            <p className="font-light text-sm text-left">
                 Tags: {props.tags === "" ? "None" : props.tags}
             </p>
             <h3 id="post-title">{props.title}</h3>

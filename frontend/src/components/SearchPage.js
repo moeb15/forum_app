@@ -55,14 +55,12 @@ function SearchPage(){
     },[posts.ID]);
 
     return(
-        <>
-            <Header />
+
             <div>
                 {Array.from(posts).map((post, idx) => (
                     <ForumPost props={post} key={idx}/>
                 ))}
             </div>
-        </>
     )
 }
 

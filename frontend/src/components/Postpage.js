@@ -72,7 +72,6 @@ function Postpage(){
 
     return(
         <div>
-            <Header/>
             <div className="forum-post-container">
                 <PostDropdown isEdit={isEdit} setEdit={setEdit}/>
                 {!isEdit ? (
