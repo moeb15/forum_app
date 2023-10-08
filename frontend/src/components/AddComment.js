@@ -23,15 +23,22 @@ function AddComment(){
     }
 
     return(
-        <div className="forum-post-container">
-            <form className="forum-post" onSubmit={submitComment}>                  
+        <div className="flex flex-col m-2 p-4 border-solid border-[0.1vh]
+        border-black shadow-md shadow-black">
+            <form className="flex flex-col" onSubmit={submitComment}>                  
                 <input type="text" 
                     placeholder="Content" 
                     id="content" 
                     name="content"
                     value={content}
-                    onChange={e=>setContent(e.target.value)}/>       
-                <button>Post</button>
+                    onChange={e=>setContent(e.target.value)}
+                    className="bg-black border-none rounded-none
+                    overflow-auto"/>       
+                <button className="text-gray-300 bg-black rounded-md
+                                    h-[5vh] hover:bg-gray-400 duration-300
+                                    hover:text-black">
+                    Post
+                </button>
             </form>
         </div>
     )
