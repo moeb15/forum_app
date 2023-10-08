@@ -39,8 +39,10 @@ function Homepage(){
                 {Array.from(posts).map((post, idx) => (
                     <ForumPost props={post} key={idx}/>
                 ))}
-            <div className="nav-btn">
-                    <button
+            <div>
+                    <button className="text-gray-300 bg-black rounded-md
+                                    h-[5vh] hover:bg-gray-400 duration-300
+                                    hover:text-black mx-2"
                         onClick={()=>{
                             if(page === 1){
                                 setPage(1);
@@ -50,7 +52,9 @@ function Homepage(){
                         }}>
                         Prev
                     </button>
-                    <button
+                    <button className="text-gray-300 bg-black rounded-md
+                                    h-[5vh] hover:bg-gray-400 duration-300
+                                    hover:text-black mx-2"
                         onClick={()=>{setPage(page+1)}}>
                         Next
                     </button>
