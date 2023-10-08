@@ -25,7 +25,7 @@ function Login(){
         }
     }
     return(
-        <div className="md:border-solid md:border-[0.1vh] md:rounded-md md:border-white
+        <div className="md:shadow-md md:shadow-black 
                         m-4  p-[10vh] text-gray-300">
             <form className="flex flex-col" onSubmit={loginSubmit}>
                 <label htmlFor="username">Username</label>
