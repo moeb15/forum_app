@@ -4,20 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Posts.css";
 
 function SearchBar({isEdit,setEdit}){    
-    const [ vis,setVis ] = useState("none");
     const [ title,setTitle ] = useState("");
     const [ tags,setTags ] = useState("");
     const navigate = useNavigate();
 
-    function showMenu(e){
-        e.preventDefault();
-        if(vis === "none"){
-            setVis("flex");
-        }else{
-            setVis("none");
-        }
-    }
-    
+
     function search(e){
         e.preventDefault();
         localStorage.setItem("search_title",title);
@@ -26,29 +17,25 @@ function SearchBar({isEdit,setEdit}){
     }
 
     return(
-        <div className="dropdown-menu">
-            <HiSearch onClick={showMenu}/>
-            <div className="dropdown-options"
-                 style={{display:vis,
-                         background:"gray"}}>
-
-                <form className="search-form"
+            <div className="bg-none text-sm text-gray-300">
+                <form className="flex flex-row bg-none"
                       onSubmit={search}>
                     <input type="text"
-                        placeholder="Search By Title" 
-                        className="dropdown-btn"
+                        placeholder="Title" 
+                        className="h-[3vh] w-[15vh] md:w-[30vh] bg-black"
                         value={title}
                         onChange={e=>setTitle(e.target.value)}/>
 
                     <input type="text"
-                        placeholder="Search By Tags" 
-                        className="dropdown-btn"
+                        placeholder="Tags" 
+                        className="h-[3vh] w-[15vh] md:w-[30vh] bg-black"
                         value={tags}
                         onChange={e=>setTags(e.target.value)}/>
-                    <button>Search</button>
+                    <button>
+                        <HiSearch size={15}/>
+                    </button>
                 </form>
             </div>
-        </div>
     )
 }
 

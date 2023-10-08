@@ -64,7 +64,8 @@ function Postpage(){
             <Comment props={cmt} key={idx}/>
         ))
 
-        cmt_section = <div className="forum-post-container" 
+        cmt_section = <div className="flex flex-col m-2 p-4 border-solid border-[0.1vh]
+                                    border-black shadow-md shadow-black" 
                            style={{textAlign:"left"}}>
                         {cmts}
                       </div>
@@ -72,7 +73,8 @@ function Postpage(){
 
     return(
         <div>
-            <div className="forum-post-container">
+            <div className=" flex flex-col m-2 p-4 border-solid border-[0.1vh]
+                        border-black shadow-md shadow-black">
                 <PostDropdown isEdit={isEdit} setEdit={setEdit}/>
                 {!isEdit ? (
                 <div className="post-data">

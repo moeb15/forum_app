@@ -1,44 +1,45 @@
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome,AiOutlineMenu } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
-import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { useState } from "react";
 
 function Header(){
+    const [ menu,setMenu ] = useState(false);
     const navigate = useNavigate();
 
-    function logout(e){
+    const logout = e => {
         e.preventDefault();
-        localStorage.setItem("token","");
+        localStorage.clear();
         navigate("/");
+    }
+
+    const expandMenu = () => {
+        setMenu(!menu)
     }
     
     return(
-        <div className="fixed w-full h-[3vh] 
-                        flex flex-row 
-                        justify-end
-                        px-4
-                        bg-[#0a192f]
-                        mb-5
-                        text-gray-300">
-            <div className="hidden md:flex flex-row justify-between
-                            px-[1vh]">
-                <SearchBar className="header-links"/>
-                <Link className="header-links"
-                    onClick={logout}>
-                    <BiLogOut />
-                </Link>
-                <Link className="header-links"
-                    to="/user">
-                    <FaUserCircle />
-                </Link>
-                <Link className="header-links" 
-                    to="/home">
-                    <AiOutlineHome />
-            </Link>
+        <div className="fixed w-full h-[3vh] flex flex-row text-gray-300 mb-4">
+            <AiOutlineMenu onClick={expandMenu}/>
+            <div className={!menu ? "hidden" : ""}>
+                <div className="w-full">
+                    <Link className="header-links"
+                        onClick={logout}>
+                        <BiLogOut />
+                    </Link>
+                    <Link className="header-links"
+                        to="/user">
+                        <FaUserCircle />
+                    </Link>
+                    <Link className="header-links" 
+                        to="/home">
+                        <AiOutlineHome />
+                    </Link>
+                </div>
             </div>
+            <SearchBar/>
         </div>
     )
 }
