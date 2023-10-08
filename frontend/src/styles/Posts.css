@@ -11,7 +11,7 @@
     margin: 0.2rem;
 }
 
-.forum-post-container input, .search-form input{
+.search-form input{
     border-radius: 0;
     background-color: rgb(50,50,50);
     color:white;
