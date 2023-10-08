@@ -9,6 +9,7 @@
     body{
         @apply font-[Roboto];
         @apply m-0;
-        @apply bg-[#0a192f]
+        @apply bg-[#284f32];
+        @apply text-sm;
     }
 }
