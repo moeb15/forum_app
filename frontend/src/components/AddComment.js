@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Posts.css";
+
 
 function AddComment(){
     const [ content,setContent ] = useState("");

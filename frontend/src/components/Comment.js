@@ -1,8 +1,8 @@
 function Comment({props}){
     return(
         <div>
-            <p style={{fontWeight:"lighter", fontSize:"small"}}>{props.Username}</p>
-            <p>{props.content}</p>
+            <p className="font-light text-sm italic my-2">{props.Username}</p>
+            <p className="my-1">{props.content}</p>
         </div>
     )
 }

@@ -9,7 +9,11 @@
     body{
         @apply font-[Roboto];
         @apply m-0;
-        @apply bg-[#284f32];
+        @apply bg-[#150e54];
         @apply text-sm;
     }
+}
+
+body::-webkit-scrollbar{
+    display:none;
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ForumPost from "./ForumPost";
-import Header from "./Header";
 
 function SearchPage(){
     const [ posts,setPosts ] = useState({});
@@ -56,7 +55,7 @@ function SearchPage(){
 
     return(
 
-            <div>
+            <div className="w-[60vh] sm:w-[100vh] h-screen">
                 {Array.from(posts).map((post, idx) => (
                     <ForumPost props={post} key={idx}/>
                 ))}

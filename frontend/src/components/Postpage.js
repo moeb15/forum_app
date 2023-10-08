@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Comment from "./Comment.js";
 import AddComment from "./AddComment.js";
-import Header from "./Header.js";
 import PostDropdown from "./PostDropdown.js";
 
 function Postpage(){
@@ -65,8 +64,7 @@ function Postpage(){
         ))
 
         cmt_section = <div className="flex flex-col m-2 p-4 border-solid border-[0.1vh]
-                                    border-black shadow-md shadow-black" 
-                           style={{textAlign:"left"}}>
+                                    border-black shadow-md shadow-black text-left">
                         {cmts}
                       </div>
     }
@@ -74,35 +72,43 @@ function Postpage(){
     return(
         <div>
             <div className=" flex flex-col m-2 p-4 border-solid border-[0.1vh]
-                        border-black shadow-md shadow-black">
+                        border-black shadow-md shadow-black h-[40vh] w-[60vh] sm:w-[100vh]
+                        text-gray-300">
                 <PostDropdown isEdit={isEdit} setEdit={setEdit}/>
                 {!isEdit ? (
                 <div className="post-data">
-                    <h3>{postdata.title}</h3>
-                    <p style={{fontWeight:"lighter", fontSize:"small", textAlign:"left"}}>{postdata.Username}</p>
+                    <h3 className="my-4 font-bold">{postdata.title}</h3>
+                    <p className="font-light text-sm text-left italic my-2">{postdata.Username}</p>
                     <p style={{textAlign:"left"}}>{postdata.content}</p>
                 </div>
                 )
                 :(
-                <form className="forum-post" onSubmit={submitEdit}>
+                <form className="flex flex-col mx-10 mb-12" onSubmit={submitEdit}>
                     <input type="text" 
                         name="title"
                         value={title}
-                        onChange={e=>setTitle(e.target.value)}/>
+                        onChange={e=>setTitle(e.target.value)}
+                        className="bg-black border-none rounded-none h-[0.4rem]"/>
                         
                     <input type="text" 
                         id="content" 
                         name="content"
                         value={content}
+                        className="bg-black border-none rounded-none h-[0.1rem]"
                         onChange={e=>setContent(e.target.value)}/>
 
                     <input type="text" 
                         id="tags" 
                         name="tags"
                         value={tags}
+                        className="bg-black border-none rounded-none h-[0.4rem]"
                         onChange={e=>setTags(e.target.value)}/>
                         
-                    <button>Save</button>
+                    <button className="text-gray-300 bg-black rounded-md
+                                    h-[5vh] hover:bg-gray-400 duration-300
+                                    hover:text-black">
+                        Save
+                    </button>
                 </form>)}
             </div>
             <AddComment/>

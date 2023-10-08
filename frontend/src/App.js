@@ -11,8 +11,7 @@ import Header from "./components/Header";
 function App() {
   return (
       <BrowserRouter>
-        <Header className={localStorage.getItem("token")!=="" ?
-                           "":"hidden"} />
+        <Header isHidden={localStorage.hasOwnProperty("token") ? false : true}/>
         <div className="App py-4">
           <Routes>
             <Route path="/" Component={Login}/>

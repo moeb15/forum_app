@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 
-function Header(){
+function Header({isHidden}){
     const [ menu,setMenu ] = useState(false);
     const navigate = useNavigate();
 
@@ -14,6 +14,7 @@ function Header(){
         e.preventDefault();
         localStorage.clear();
         navigate("/");
+        window.location.reload();
     }
 
     const expandMenu = () => {
@@ -21,25 +22,25 @@ function Header(){
     }
     
     return(
-        <div className="fixed w-full h-[3vh] flex flex-row text-gray-300 mb-4">
-            <AiOutlineMenu onClick={expandMenu}/>
-            <div className={!menu ? "hidden" : ""}>
-                <div className="w-full">
-                    <Link className="header-links"
-                        onClick={logout}>
-                        <BiLogOut />
-                    </Link>
-                    <Link className="header-links"
-                        to="/user">
-                        <FaUserCircle />
-                    </Link>
-                    <Link className="header-links" 
-                        to="/home">
-                        <AiOutlineHome />
-                    </Link>
+        <div className={!isHidden ? "fixed text-gray-300 mb-4 flex flex-row right-1 top-1 " :
+                        "hidden"}>
+            <SearchBar />
+            <div>
+                <AiOutlineMenu className="my-[1vh]" size={15} onClick={expandMenu}/>
+                <div className={!menu ? "hidden" : "flex flex-col transition-all duration-200"}>
+                    <div className="w-full">
+                        <Link to="/home">
+                            <AiOutlineHome size={15} className="my-2"/>
+                        </Link>
+                        <Link to="/user">
+                            <FaUserCircle size={15} className="my-2"/>
+                        </Link>
+                        <Link onClick={logout}>
+                            <BiLogOut size={15} className="my-2"/>
+                        </Link>
+                    </div>
                 </div>
             </div>
-            <SearchBar/>
         </div>
     )
 }

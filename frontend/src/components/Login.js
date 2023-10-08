@@ -22,6 +22,7 @@ function Login(){
             localStorage.setItem("token",content.jwt);
             localStorage.setItem("username",user);
             navigate("/home");
+            window.location.reload();
         }
     }
     return(

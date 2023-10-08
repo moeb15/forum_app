@@ -1,7 +1,6 @@
 import AddPost from "./AddPost";
 import { useState,useEffect } from "react";
 import ForumPost from "./ForumPost";
-import Header from "./Header.js";
 
 function Homepage(){
     const [ posts,setPosts ] = useState({});

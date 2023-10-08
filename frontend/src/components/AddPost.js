@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/Posts.css";
 
 function AddPost(){
     const [ title,setTitle ] = useState("");
@@ -36,7 +35,7 @@ function AddPost(){
     }
 
     return(
-        <div className="flex flex-col  text-gray-300 sm:w-[100vh]
+        <div className="flex flex-col  text-gray-300 w-[60vh] sm:w-[100vh]
                         m-2 p-4 border-solid border-[0.1vh]
                         border-black shadow-md shadow-black
                         h-[100%]">

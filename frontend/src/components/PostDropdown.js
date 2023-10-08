@@ -1,6 +1,5 @@
 import { useState }  from "react";
 import { MdArrowDropDown,MdDelete,MdEdit } from "react-icons/md";
-import "../styles/Dropdown.css";
 import { useNavigate } from "react-router-dom";
 
 function PostDropdown({isEdit,setEdit}){    
@@ -42,13 +41,13 @@ function PostDropdown({isEdit,setEdit}){
     
 
     return(
-        <div className="dropdown-menu">
+        <div className="text-left absolute">
             <MdArrowDropDown onClick={showMenu}/>
-            <div className="dropdown-options"
+            <div className="flex flex-col"
                  style={{display:vis}}>
-                <MdEdit className="dropdown-btn"
+                <MdEdit className="mb-[1vh] cursor-pointer"
                         onClick={showEdit}/>
-                <MdDelete className="dropdown-btn"
+                <MdDelete className="mb-[1vh] cursor-pointer"
                           onClick={onDelete}/>
             </div>
         </div>
