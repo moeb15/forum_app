@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function AddComment(){
     const [ content,setContent ] = useState("");
-    const addcomment_url = "http://localhost:8000/api/posts/";
 
     const submitComment = async(e) =>{
         const addcomment_url = `http://localhost:8000/api/posts/${localStorage.getItem("current_post")}`;
@@ -19,7 +18,9 @@ function AddComment(){
         })
 
         const data = await response.json();
-        window.location.reload();
+        if(data.hasOwnProperty("data")){
+            window.location.reload();
+        }
     }
 
     return(
