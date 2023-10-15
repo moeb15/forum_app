@@ -55,5 +55,11 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"jwt": jwt})
+	refreshToken, err := helpers.GenerateRefreshToken(user)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate refresh token"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"jwt": jwt, "refresh_token": refreshToken})
 }
