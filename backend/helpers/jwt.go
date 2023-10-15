@@ -25,6 +25,17 @@ func GenerateJWT(user models.User) (string, error) {
 	return token.SignedString(private_key)
 }
 
+func GenerateRefreshToken(user models.User) (string, error) {
+    token_ttl, _ := strconv.Atoi(os.Getenv("REFRESH_TOKEN_TTL")) // 刷新令牌的有效期
+    token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+        "id":  user.ID,
+        "iat": time.Now().Unix(),
+        "eat": time.Now().Add(time.Minute * time.Duration(token_ttl)).Unix(),
+    })
+    return token.SignedString(private_key)
+}
+
+
 func CurrentUser(c *gin.Context) (models.User, error) {
 	err := ValidateJWT(c)
 	if err != nil {
